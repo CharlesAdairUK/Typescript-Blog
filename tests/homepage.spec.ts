@@ -5,7 +5,7 @@ import { NavigationBar } from '../pages/navigation-bar';
 let homePage: HomePage;
 let navigationBar: NavigationBar;
 const URL = 'https://nextra-docs-template.vercel.app/';
-const pageUrl = /.*about/;
+const pageUrl = /.*aboust/;
 
 test.beforeEach(async ({page}) => {
     await page.goto(URL);
