@@ -5,7 +5,7 @@ import { NavigationBar } from '../pages/navigation-bar';
 let homePage: HomePage;
 let navigationBar: NavigationBar;
 const URL = 'https://nextra-docs-template.vercel.app/';
-const pageUrl = /.*aboust/;
+const pageUrl = /.*about/;
 
 test.beforeEach(async ({page}) => {
     await page.goto(URL);
@@ -33,6 +33,21 @@ test.describe('Home Page', () => {
     test('Verify About page button', async ({ page }) => {
         await homePage.clickAboutPageBtn();
         await homePage.assertPageUrl(pageUrl)
+    });
+
+    test('Verify toggle theme button exists', async ({ page }) => {
+        navigationBar = new NavigationBar(page);
+        await navigationBar.verifyColourThemeToggleVisible();
+    });
+
+    test('Verify toggle theme button changes theme to light', async ({ page }) => {
+        navigationBar = new NavigationBar(page);
+        await navigationBar.changeColourThemeLight();
+    });
+
+    test('Verify toggle theme button changes theme to dark', async ({ page }) => {
+        navigationBar = new NavigationBar(page);
+        await navigationBar.changeColourThemeDark();
     });
 
 });
